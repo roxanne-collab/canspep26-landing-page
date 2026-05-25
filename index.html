@@ -1,0 +1,1680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ice to Meet You | Outside the Box BC at CanSPEP 2026</title>
+  <meta name="description" content="Sip outside the box with easy drinks inspired by Kamloops, Penticton, and Nanaimo, then explore three creative BC meeting destinations through Outside the Box BC." />
+  <meta property="og:title" content="Ice to Meet You | Outside the Box BC" />
+  <meta property="og:description" content="One website. Three BC destinations. Ask us about the incentive." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://canspep26.outsidetheboxbc.ca/" />
+  <meta property="og:image" content="https://canspep26.outsidetheboxbc.ca/assets/logos/OutsideTheBoxBC-Logo-Colour-RGB.png" />
+  <link rel="canonical" href="https://canspep26.outsidetheboxbc.ca/" />
+  <meta name="robots" content="index, follow" />
+
+  <style>
+    @font-face {
+      font-family: 'Corben';
+      src: url('assets/fonts/Corben/Corben-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @font-face {
+      font-family: 'Corben';
+      src: url('assets/fonts/Corben/Corben-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    /* =============================================
+       CSS CUSTOM PROPERTIES - OTBBC Brand Colours
+       Source: OutsideTheBoxBC-2024-BrandSheet.pdf
+    ============================================= */
+    :root {
+      --teal:   #6AC8C7;
+      --green:  #A8B235;
+      --coral:  #F26449;
+      --peach:  #FBC5B0;
+      --black:  #000000;
+      --white:  #FFFFFF;
+      --off-white: #FAFAF7;
+
+      --font-display: 'Corben', Georgia, serif;
+      --font-body:    system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+      --radius-card: 16px;
+      --radius-btn:  100px;
+      --transition:  0.25s ease;
+    }
+
+    /* =============================================
+       RESET + BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+    .font-display,
+    h1,
+    h2,
+    h3,
+    .btn,
+    .destination__label,
+    .recipe-card__name,
+    .recipe-card__cheeky,
+    .recipe-card__toggle,
+    .recipe-card__ingredients h4,
+    .recipe-card__instructions h4,
+    .step__number,
+    .how-it-works__tagline,
+    .site-footer__tagline {
+      font-family: var(--font-display);
+      font-variant-ligatures: none;
+      font-feature-settings: "liga" 0, "clig" 0, "calt" 0;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); line-height: 1.1; }
+
+    h1 { font-size: clamp(2.4rem, 8vw, 5rem); font-weight: 700; }
+    h2 { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 700; }
+    h3 { font-size: clamp(1.3rem, 3.5vw, 1.8rem); font-weight: 700; }
+
+    p { line-height: 1.6; font-size: clamp(1rem, 2.5vw, 1.1rem); }
+
+    .eyebrow {
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-pad {
+      padding: 4rem 0;
+    }
+
+    @media (min-width: 768px) {
+      .section-pad { padding: 6rem 0; }
+    }
+
+    /* =============================================
+       BUTTONS
+    ============================================= */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: var(--radius-btn);
+      padding: 0.9rem 2rem;
+      min-height: 52px;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .btn:hover, .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+      outline: none;
+    }
+
+    .btn:focus-visible {
+      outline: 3px solid var(--teal);
+      outline-offset: 3px;
+    }
+
+    .btn-coral {
+      background: var(--coral);
+      color: var(--white);
+      border-color: var(--coral);
+    }
+
+    .btn-coral:hover { background: #d9503a; border-color: #d9503a; }
+
+    .btn-teal {
+      background: var(--teal);
+      color: var(--black);
+      border-color: var(--teal);
+    }
+
+    .btn-teal:hover { background: #52b3b2; border-color: #52b3b2; }
+
+    .btn-outline-white {
+      background: transparent;
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .btn-outline-white:hover { background: var(--white); color: var(--black); }
+
+    .btn-black {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .btn-black:hover { background: #222; }
+
+    .microcopy {
+      font-size: 0.85rem;
+      font-family: var(--font-body);
+      opacity: 0.8;
+      margin-top: 0.75rem;
+    }
+
+    /* =============================================
+       SECTION DIVIDERS
+    ============================================= */
+    .wave-divider {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .wave-divider svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* =============================================
+       STICKY HEADER
+    ============================================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .site-header__logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .site-header__logo img {
+      height: 40px;
+      width: auto;
+    }
+
+    .site-header .btn {
+      font-size: 0.85rem;
+      padding: 0.6rem 1.25rem;
+      min-height: 44px;
+      white-space: nowrap;
+    }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    .hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 3.5rem 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .hero__logo {
+      max-width: min(85vw, 520px);
+      width: 100%;
+    }
+
+    .hero__logo-link {
+      display: inline-block;
+      max-width: min(85vw, 520px);
+      width: 100%;
+      line-height: 0;
+    }
+
+    .hero__logo-link .hero__logo {
+      max-width: none;
+    }
+
+    .hero__eyebrow {
+      color: var(--peach);
+    }
+
+    .hero__headline {
+      color: var(--teal);
+      margin-top: 0.25rem;
+    }
+
+    .hero__subhead {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 3vw, 1.4rem);
+      font-weight: 400;
+      color: var(--peach);
+    }
+
+    .hero__body {
+      max-width: 640px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .hero__cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hero__microcopy {
+      color: var(--peach);
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
+    }
+
+    /* Hero image strip */
+    .hero__image-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+      width: 100%;
+      margin-top: 1rem;
+    }
+
+    .hero__image-strip figure {
+      margin: 0;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .image-link {
+      display: block;
+      width: 100%;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .hero__image-strip img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .hero__image-strip figure:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero__image-strip figcaption {
+      position: absolute;
+      left: 0; bottom: 0;
+      background: rgba(0,0,0,0.55);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      padding: 0.3rem 0.6rem;
+      border-top-right-radius: 6px;
+    }
+
+    .hero__image-strip figure { position: relative; }
+
+    .hero__logo-link:focus-visible,
+    .image-link:focus-visible,
+    .destination__label:focus-visible,
+    .how-it-works__tagline:focus-visible,
+    .final-cta__logo-link:focus-visible,
+    .site-footer__logo-link:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding-top: 5rem; }
+    }
+
+    /* =============================================
+       WHAT IS OTBBC
+    ============================================= */
+    .what-otbbc {
+      background: var(--teal);
+      color: var(--black);
+    }
+
+    .what-otbbc__headline {
+      max-width: 760px;
+      margin-bottom: 1.25rem;
+    }
+
+    .what-otbbc__body {
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+    }
+
+    .feature-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .feature-cards { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      padding: 1.5rem 1.25rem;
+      border-top: 5px solid var(--coral);
+    }
+
+    .feature-card:nth-child(2) { border-top-color: var(--green); }
+    .feature-card:nth-child(3) { border-top-color: var(--peach); }
+
+    .feature-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    /* =============================================
+       INCENTIVE CALLOUT
+    ============================================= */
+    .incentive {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .incentive__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.25rem;
+      max-width: 720px;
+    }
+
+    .incentive__headline { line-height: 1.1; }
+    .incentive__body { font-size: 1.05rem; line-height: 1.6; }
+
+    .incentive__cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    /* =============================================
+       RECIPE INTRO
+    ============================================= */
+    .recipe-intro {
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .recipe-intro h2 { color: var(--peach); max-width: 760px; margin: 0 auto 1rem; }
+    .recipe-intro p { max-width: 640px; margin: 0 auto; color: rgba(255,255,255,0.85); }
+
+    /* =============================================
+       DESTINATION + RECIPE SECTIONS
+    ============================================= */
+    .destination-section {
+      overflow: hidden;
+    }
+
+    /* Kamloops */
+    .destination-section--kamloops { background: var(--off-white); }
+    /* Penticton */
+    .destination-section--penticton { background: var(--teal); }
+    /* Nanaimo */
+    .destination-section--nanaimo { background: var(--black); color: var(--white); }
+
+    .destination-layout {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+      align-items: start;
+    }
+
+    @media (min-width: 860px) {
+      .destination-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    .destination__label {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.85rem;
+      border-radius: 100px;
+      margin-bottom: 0.75rem;
+      text-decoration: none;
+    }
+
+    .destination-section--kamloops .destination__label { background: var(--green); color: var(--black); }
+    .destination-section--penticton .destination__label { background: var(--coral); color: var(--white); }
+    .destination-section--nanaimo .destination__label { background: var(--teal); color: var(--black); }
+
+    .destination__headline {
+      margin-bottom: 0.85rem;
+    }
+
+    .destination-section--nanaimo .destination__headline { color: var(--teal); }
+
+    .destination__body {
+      margin-bottom: 1.5rem;
+      line-height: 1.65;
+      max-width: 760px;
+    }
+
+    /* Photo cards in destination */
+    .destination__media {
+      margin: 1.5rem 0 1.75rem;
+    }
+
+    .destination__photo-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .destination__photo-pair figure {
+      margin: 0;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+
+    .destination__photo-pair figure:first-child {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+    }
+
+    .destination__photo-pair img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .destination__photo-pair figure:hover img {
+      transform: scale(1.04);
+    }
+
+    /* =============================================
+       RECIPE CARD / ACCORDION
+    ============================================= */
+    .recipe-card {
+      background: var(--white);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      margin-top: 1.25rem;
+      max-width: 760px;
+    }
+
+    .destination-section--nanaimo .recipe-card { border: 2px solid var(--teal); }
+
+    .recipe-card__header {
+      padding: 1.25rem 1.25rem 1rem;
+    }
+
+    .recipe-card__name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--black);
+      margin-bottom: 0.35rem;
+    }
+
+    .recipe-card__oneliner {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+    }
+
+    .recipe-card__cheeky {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--coral);
+      font-family: var(--font-display);
+    }
+
+    .recipe-card__preview {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .recipe-card__toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.9rem 1.25rem;
+      background: none;
+      border: none;
+      border-top: 2px solid #eee;
+      cursor: pointer;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--black);
+      text-align: left;
+      transition: background var(--transition);
+      min-height: 52px;
+    }
+
+    .recipe-card__toggle:hover { background: #f5f5f0; }
+    .recipe-card__toggle:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; }
+
+    .recipe-card__toggle-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--teal);
+      color: var(--black);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform var(--transition), background var(--transition);
+    }
+
+    .recipe-card__toggle[aria-expanded="true"] .recipe-card__toggle-icon {
+      transform: rotate(45deg);
+      background: var(--coral);
+      color: var(--white);
+    }
+
+    .recipe-card__body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height 0.4s ease, padding var(--transition);
+      padding: 0 1.25rem;
+    }
+
+    .recipe-card__body.is-open {
+      max-height: 1000px;
+      padding: 1rem 1.25rem 1.25rem;
+    }
+
+    .recipe-card__ingredients,
+    .recipe-card__instructions {
+      margin-bottom: 1rem;
+    }
+
+    .recipe-card__ingredients h4,
+    .recipe-card__instructions h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    .recipe-card__ingredients ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .recipe-card__ingredients li {
+      font-size: 0.95rem;
+      padding-left: 1.25rem;
+      position: relative;
+      line-height: 1.4;
+    }
+
+    .recipe-card__ingredients li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--coral);
+      font-weight: 700;
+    }
+
+    .recipe-card__instructions ol {
+      list-style: none;
+      padding: 0;
+      counter-reset: step;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .recipe-card__instructions li {
+      font-size: 0.95rem;
+      counter-increment: step;
+      padding-left: 2rem;
+      position: relative;
+      line-height: 1.5;
+    }
+
+    .recipe-card__instructions li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1.4rem;
+      height: 1.4rem;
+      background: var(--teal);
+      color: var(--black);
+      border-radius: 50%;
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+    }
+
+    .recipe-card__mocktail {
+      background: #f5f9f9;
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #444;
+      border-left: 3px solid var(--teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .recipe-card__destination-cta {
+      padding: 1rem 1.25rem 1.25rem;
+      border-top: 2px solid #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.4rem;
+    }
+
+    .recipe-card__destination-cta .microcopy {
+      color: #666;
+      font-style: italic;
+    }
+
+    /* =============================================
+       HOW IT WORKS
+    ============================================= */
+    .how-it-works {
+      background: var(--off-white);
+    }
+
+    .how-it-works__headline {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+      .steps { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .step {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      padding: 1.5rem;
+      background: var(--white);
+      border-radius: var(--radius-card);
+      border-bottom: 5px solid var(--teal);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+
+    .step:nth-child(2) { border-bottom-color: var(--coral); }
+    .step:nth-child(3) { border-bottom-color: var(--green); }
+
+    .step__number {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1;
+    }
+
+    .step:nth-child(2) .step__number { color: var(--coral); }
+    .step:nth-child(3) .step__number { color: var(--green); }
+
+    .step h3 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .step p { font-size: 0.95rem; line-height: 1.55; }
+
+    .how-it-works__tagline {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-top: 2.5rem;
+      color: var(--black);
+      background: var(--peach);
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+
+    .how-it-works__tagline-wrap {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    /* =============================================
+       PLANNER PROBLEM SECTION
+    ============================================= */
+    .planner-problem {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .planner-problem__headline {
+      color: var(--peach);
+      max-width: 700px;
+      margin-bottom: 1.25rem;
+    }
+
+    .planner-problem__body {
+      max-width: 660px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 2rem;
+    }
+
+    .planner-bullets {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      max-width: 640px;
+    }
+
+    .planner-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.85rem;
+      font-size: 1.05rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .planner-bullets li::before {
+      content: "";
+      display: block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex-shrink: 0;
+      margin-top: 0.38em;
+    }
+
+    .planner-bullets li:nth-child(2)::before { background: var(--teal); }
+    .planner-bullets li:nth-child(3)::before { background: var(--green); }
+    .planner-bullets li:nth-child(4)::before { background: var(--peach); }
+    .planner-bullets li:nth-child(5)::before { background: var(--coral); }
+
+    /* =============================================
+       FINAL CTA
+    ============================================= */
+    .final-cta {
+      background: var(--white);
+      color: var(--black);
+      text-align: center;
+    }
+
+    .final-cta__logo-link {
+      display: inline-block;
+      max-width: min(85vw, 480px);
+      margin: 0 auto 2rem;
+      line-height: 0;
+    }
+
+    .final-cta__logo {
+      max-width: 100%;
+      margin: 0;
+    }
+
+    .final-cta__headline {
+      margin-bottom: 1rem;
+    }
+
+    .final-cta__body {
+      max-width: 580px;
+      margin: 0 auto 2rem;
+      font-size: 1.05rem;
+    }
+
+    .final-cta__cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    .site-footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .site-footer__logo {
+      max-width: 320px;
+      margin: 0;
+    }
+
+    .site-footer__logo-link {
+      display: inline-block;
+      max-width: 320px;
+      margin: 0 auto 1.5rem;
+      line-height: 0;
+    }
+
+    .site-footer__tagline {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--peach);
+      margin-bottom: 1rem;
+    }
+
+    .site-footer__contact {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 1.5rem;
+    }
+
+    .site-footer__contact a {
+      color: var(--teal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .site-footer__contact a:hover { color: var(--peach); }
+
+    .site-footer__legal {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 2rem;
+      line-height: 1.5;
+    }
+
+    /* =============================================
+       FADE-IN ANIMATION
+    ============================================= */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* =============================================
+       DESTINATION COLOUR OVERRIDES FOR RECIPE CARDS
+    ============================================= */
+    .destination-section--penticton .recipe-card__toggle-icon { background: var(--coral); color: var(--white); }
+    .destination-section--penticton .recipe-card__toggle[aria-expanded="true"] .recipe-card__toggle-icon { background: var(--green); color: var(--black); }
+    .destination-section--nanaimo .recipe-card__toggle-icon { background: var(--teal); color: var(--black); }
+    .destination-section--nanaimo .recipe-card__toggle[aria-expanded="true"] .recipe-card__toggle-icon { background: var(--coral); color: var(--white); }
+    .destination-section--penticton .recipe-card__cheeky { color: var(--green); }
+    .destination-section--nanaimo .recipe-card__cheeky { color: var(--teal); }
+    .destination-section--penticton .recipe-card__ingredients li::before { color: var(--green); }
+    .destination-section--nanaimo .recipe-card__ingredients li::before { color: var(--teal); }
+    .destination-section--penticton .recipe-card__instructions li::before { background: var(--coral); color: var(--white); }
+    .destination-section--nanaimo .recipe-card__instructions li::before { background: var(--teal); color: var(--black); }
+
+    /* =============================================
+       INCENTIVE SECTION OVERRIDE
+    ============================================= */
+    .incentive .microcopy { opacity: 0.7; }
+
+    /* =============================================
+       DESTINATION SECTION SPACING FIX
+    ============================================= */
+    .destination-section .container {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .destination-section .container {
+        padding-top: 5rem;
+        padding-bottom: 5rem;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ============================================
+       SECTION 1: STICKY HEADER
+  ============================================= -->
+  <header class="site-header" role="banner">
+    <div class="site-header__logo">
+      <a href="https://www.outsidetheboxbc.ca/" aria-label="Outside the Box BC - go to main website">
+        <img
+          src="assets/logos/OutsideTheBoxBC-Logo-Icon-Reversed-RGB.png"
+          alt="Outside the Box BC box icon"
+          width="40"
+          height="40"
+        />
+      </a>
+    </div>
+    <a href="https://www.outsidetheboxbc.ca/" class="btn btn-coral" aria-label="Visit the Outside the Box BC website">
+      Visit Outside the Box BC
+    </a>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ============================================
+         SECTION 2: HERO
+    ============================================= -->
+    <section class="hero" aria-labelledby="hero-headline">
+      <div class="container">
+        <div class="hero__inner">
+          <a href="https://www.outsidetheboxbc.ca/" class="hero__logo-link fade-in" aria-label="Visit the Outside the Box BC website">
+            <img
+              src="assets/logos/OutsideTheBoxBC-Logo-Reversed-RGB.png"
+              alt="Outside the Box BC logo showing Kamloops, Penticton, and Nanaimo connected through a box graphic."
+              class="hero__logo"
+              width="520"
+            />
+          </a>
+          <p class="eyebrow hero__eyebrow fade-in">CanSPEP 2026</p>
+          <h1 id="hero-headline" class="hero__headline fade-in">'Ice' to meet you.</h1>
+          <p class="hero__subhead fade-in">Your custom ice tray is just the beginning.</p>
+          <p class="hero__body fade-in">
+            Sip something fun, then meet the three BC destinations helping planners break out of the beige ballroom cycle. Outside the Box BC helps planners source creative, cost-conscious, and memorable meeting destinations beyond the usual big-city options. Come see Kamloops, Penticton, and Nanaimo for yourself.
+          </p>
+          <div class="hero__cta-wrap fade-in">
+            <a href="https://www.outsidetheboxbc.ca/" class="btn btn-coral">Visit Outside the Box BC</a>
+            <p class="hero__microcopy">One website. Three destinations. Ask us about the incentive.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero image strip: one image per destination -->
+      <div class="hero__image-strip">
+        <figure>
+          <a href="https://www.tourismkamloops.com/meetings/" class="image-link" aria-label="Meet in Kamloops">
+            <img
+              src="assets/photos/kamloops-sunset-hike.jpg"
+              alt="Small group hiking above Kamloops at sunset with river valley views."
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+          </a>
+          <figcaption>Kamloops</figcaption>
+        </figure>
+        <figure>
+          <a href="https://meetinpenticton.com/" class="image-link" aria-label="Meet in Penticton">
+            <img
+              src="assets/photos/penticton-sign-aerial.jpg"
+              alt="Aerial view of the Penticton sign overlooking vineyards and hills."
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+          </a>
+          <figcaption>Penticton</figcaption>
+        </figure>
+        <figure>
+          <a href="https://tourismnanaimo.com/meetings-conferences/" class="image-link" aria-label="Meet in Nanaimo">
+            <img
+              src="assets/photos/nanaimo-harbour-air.jpg"
+              alt="Harbour Air seaplane docked on the waterfront in Nanaimo."
+              loading="lazy"
+              width="400"
+              height="300"
+            />
+          </a>
+          <figcaption>Nanaimo</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Wave divider: hero to what-otbbc -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,48 L0,24 Q360,0 720,24 Q1080,48 1440,24 L1440,48 Z" fill="#6AC8C7"/>
+      </svg>
+    </div>
+
+    <!-- ============================================
+         SECTION 3: WHAT IS OUTSIDE THE BOX BC?
+    ============================================= -->
+    <section class="what-otbbc section-pad" aria-labelledby="otbbc-headline">
+      <div class="container">
+        <h2 id="otbbc-headline" class="what-otbbc__headline fade-in">One website. Three BC destinations. Way less sourcing chaos.</h2>
+        <p class="what-otbbc__body fade-in">
+          Planning a meeting in BC should not mean choosing between too expensive, too expected, and too much work. Outside the Box BC brings Kamloops, Penticton, and Nanaimo together in one place so planners can explore three strong destination options without starting from scratch three separate times.
+        </p>
+        <div class="feature-cards" role="list">
+          <div class="feature-card fade-in" role="listitem">
+            <h3>Creative destination options</h3>
+            <p>For clients who want something more memorable than another standard ballroom and another standard agenda.</p>
+          </div>
+          <div class="feature-card fade-in" role="listitem">
+            <h3>Cost-conscious planning</h3>
+            <p>Strong venues, destination support, and experiences that help your budget work harder without making the event feel smaller.</p>
+          </div>
+          <div class="feature-card fade-in" role="listitem">
+            <h3>One place to start</h3>
+            <p>Use one website to explore all three destinations and get connected with the right people.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider: what-otbbc to incentive -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,0 L0,24 Q360,48 720,24 Q1080,0 1440,24 L1440,0 Z" fill="#6AC8C7"/>
+        <rect x="0" y="24" width="1440" height="24" fill="#A8B235"/>
+      </svg>
+    </div>
+
+    <!-- ============================================
+         SECTION 4: INCENTIVE CALLOUT
+    ============================================= -->
+    <section class="incentive section-pad" aria-labelledby="incentive-headline">
+      <div class="container">
+        <div class="incentive__inner">
+          <h2 id="incentive-headline" class="incentive__headline fade-in">Yes, there's an incentive.</h2>
+          <p class="incentive__body fade-in">
+            If your clients are open to meeting beyond the obvious, there may be money back on the table. Ask us about the multi-destination incentive and how it can work when eligible meetings land in more than one Outside the Box BC destination.
+          </p>
+          <div class="incentive__cta-wrap fade-in">
+            <a href="https://www.outsidetheboxbc.ca/" class="btn btn-black">Visit Outside the Box BC</a>
+            <p class="microcopy">Ask us about our multi-destination incentive.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider: incentive to recipe intro -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,0 L1440,0 L1440,24 Q1080,48 720,24 Q360,0 0,24 Z" fill="#A8B235"/>
+        <rect x="0" y="24" width="1440" height="24" fill="#000000"/>
+      </svg>
+    </div>
+
+    <!-- ============================================
+         SECTION 5: RECIPE INTRO
+    ============================================= -->
+    <section class="recipe-intro section-pad" aria-labelledby="recipe-intro-headline">
+      <div class="container">
+        <h2 id="recipe-intro-headline" class="fade-in">Three destinations. Three drinks. Zero beige ballroom energy.</h2>
+        <p class="fade-in" style="margin-top:1rem;">
+          We made you a custom ice tray because watered-down meetings are not really our thing. Scroll for easy drinks inspired by Kamloops, Penticton, and Nanaimo, then go see why planners are looking outside the usual big-city options.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 6: KAMLOOPS
+    ============================================= -->
+    <section class="destination-section destination-section--kamloops" aria-labelledby="kamloops-headline">
+      <div class="container">
+        <div class="destination-layout">
+
+          <!-- Content -->
+          <div class="destination__content">
+            <a href="https://www.tourismkamloops.com/meetings/" class="destination__label">Kamloops</a>
+            <h2 id="kamloops-headline" class="destination__headline fade-in">
+              Big city amenities without the big city costs.
+            </h2>
+            <p class="destination__body fade-in">
+              For groups that need access, value, and room to breathe without sacrificing the essentials. Think riverside energy, outdoor options, arts and culture, and delegate experiences that feel like more than another conference room with carpet.
+            </p>
+
+            <div class="destination__media fade-in">
+              <div class="destination__photo-pair">
+                <figure>
+                  <a href="https://www.tourismkamloops.com/meetings/" class="image-link" aria-label="Meet in Kamloops">
+                    <img
+                      src="assets/photos/kamloops-sunset-hike.jpg"
+                      alt="Small group hiking above Kamloops at sunset with river valley views."
+                      loading="lazy"
+                      width="800"
+                      height="450"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://www.tourismkamloops.com/meetings/" class="image-link" aria-label="Meet in Kamloops">
+                    <img
+                      src="assets/photos/kamloops-powwow.jpg"
+                      alt="Dancers in colourful regalia at a powwow in Kamloops."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://www.tourismkamloops.com/meetings/" class="image-link" aria-label="Meet in Kamloops">
+                    <img
+                      src="assets/photos/kamloops-river-aerial.jpg"
+                      alt="Aerial view of Kamloops at sunset showing the North Shore and Thompson River."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+              </div>
+            </div>
+
+            <!-- Recipe Card: The Chill Loops Brew -->
+            <div class="recipe-card fade-in" role="region" aria-labelledby="recipe-kamloops-name">
+              <div class="recipe-card__header">
+                <p class="recipe-card__name" id="recipe-kamloops-name">The Chill Loops Brew</p>
+                <p class="recipe-card__oneliner">A smooth, slightly indulgent iced coffee that feels a step up from basic.</p>
+                <p class="recipe-card__cheeky">Coffee ice cubes. Because watered-down coffee is not a strategy.</p>
+                <p class="recipe-card__preview">Cold brew, maple, cinnamon, and ice that knows how to pull its weight.</p>
+              </div>
+              <button
+                class="recipe-card__toggle"
+                aria-expanded="false"
+                aria-controls="recipe-kamloops-body"
+                onclick="toggleRecipe(this)"
+              >
+                <span>View recipe</span>
+                <span class="recipe-card__toggle-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="recipe-card__body" id="recipe-kamloops-body" role="region">
+                <div class="recipe-card__ingredients">
+                  <h4>Ingredients</h4>
+                  <ul>
+                    <li>Cold brew or strong brewed coffee, cooled</li>
+                    <li>Milk or oat milk</li>
+                    <li>Maple syrup or vanilla syrup</li>
+                    <li>Dash of cinnamon</li>
+                    <li>Ice cubes</li>
+                    <li>Optional: coffee ice cubes</li>
+                  </ul>
+                </div>
+                <div class="recipe-card__instructions">
+                  <h4>Instructions</h4>
+                  <ol>
+                    <li>Fill a glass with ice cubes. Coffee ice cubes are ideal if you want zero dilution.</li>
+                    <li>Pour in cold brew.</li>
+                    <li>Add a splash of milk or oat milk.</li>
+                    <li>Stir in 1 to 2 teaspoons of maple syrup or vanilla syrup.</li>
+                    <li>Finish with a light sprinkle of cinnamon.</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="recipe-card__destination-cta">
+                <a href="https://www.tourismkamloops.com/meetings/" class="btn btn-teal">Meet in Kamloops</a>
+                <p class="microcopy">Ask how Kamloops fits into your next Outside the Box BC meeting plan.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 7: PENTICTON
+    ============================================= -->
+    <section class="destination-section destination-section--penticton" aria-labelledby="penticton-headline">
+      <div class="container">
+        <div class="destination-layout destination-layout--reversed">
+          <div class="destination__content">
+            <a href="https://meetinpenticton.com/" class="destination__label">Penticton</a>
+            <h2 id="penticton-headline" class="destination__headline fade-in">
+              Vineyard views meet big venue energy.
+            </h2>
+            <p class="destination__body fade-in">
+              For planners who need real event capacity, memorable offsite options, and a destination people are actually happy to put on their calendar. It brings the Okanagan setting without asking your program to play small.
+            </p>
+
+            <div class="destination__media fade-in">
+              <div class="destination__photo-pair">
+                <figure>
+                  <a href="https://meetinpenticton.com/" class="image-link" aria-label="Meet in Penticton">
+                    <img
+                      src="assets/photos/penticton-sign-aerial.jpg"
+                      alt="Aerial view of the Penticton sign overlooking vineyards and hills."
+                      loading="lazy"
+                      width="800"
+                      height="450"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://meetinpenticton.com/" class="image-link" aria-label="Meet in Penticton">
+                    <img
+                      src="assets/photos/penticton-winter-lake.jpg"
+                      alt="Snowy Penticton lakeshore with Okanagan hills in winter."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://meetinpenticton.com/" class="image-link" aria-label="Meet in Penticton">
+                    <img
+                      src="assets/photos/penticton-mahoney-lake-hike.jpg"
+                      alt="A group hiking beside Mahoney Lake near Penticton."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+              </div>
+            </div>
+
+            <!-- Recipe Card: Penticton Icebreaker -->
+            <div class="recipe-card fade-in" role="region" aria-labelledby="recipe-penticton-name">
+              <div class="recipe-card__header">
+                <p class="recipe-card__name" id="recipe-penticton-name">Penticton Icebreaker</p>
+                <p class="recipe-card__oneliner">Very Okanagan, approachable, not overly sweet, and yes, this one can be a cocktail.</p>
+                <p class="recipe-card__cheeky">A little peach, a little sparkle, and enough personality to start the conversation for you.</p>
+                <p class="recipe-card__preview">Peach, lemon, soda, and a little optional trouble.</p>
+              </div>
+              <button
+                class="recipe-card__toggle"
+                aria-expanded="false"
+                aria-controls="recipe-penticton-body"
+                onclick="toggleRecipe(this)"
+              >
+                <span>View recipe</span>
+                <span class="recipe-card__toggle-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="recipe-card__body" id="recipe-penticton-body" role="region">
+                <div class="recipe-card__ingredients">
+                  <h4>Ingredients</h4>
+                  <ul>
+                    <li>Vodka or gin</li>
+                    <li>Peach juice or peach nectar</li>
+                    <li>Lemon juice</li>
+                    <li>Honey syrup</li>
+                    <li>Soda water</li>
+                    <li>Ice cubes</li>
+                    <li>Peach slice or lemon for garnish</li>
+                  </ul>
+                </div>
+                <div class="recipe-card__instructions">
+                  <h4>Instructions</h4>
+                  <ol>
+                    <li>Fill a shaker or glass with ice.</li>
+                    <li>Add 1.5 ounces vodka or gin.</li>
+                    <li>Add 2 ounces peach juice or peach nectar.</li>
+                    <li>Add 0.5 ounce lemon juice.</li>
+                    <li>Add 1 teaspoon honey syrup.</li>
+                    <li>Shake or stir.</li>
+                    <li>Top with soda water.</li>
+                    <li>Garnish with a peach slice or lemon.</li>
+                  </ol>
+                </div>
+                <p class="recipe-card__mocktail">
+                  <strong>Mocktail option:</strong> Skip the vodka or gin and add a little extra soda water.
+                </p>
+              </div>
+              <div class="recipe-card__destination-cta">
+                <a href="https://meetinpenticton.com/" class="btn btn-coral">Meet in Penticton</a>
+                <p class="microcopy">Ask how Penticton fits into your next Outside the Box BC meeting plan.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 8: NANAIMO
+    ============================================= -->
+    <section class="destination-section destination-section--nanaimo" aria-labelledby="nanaimo-headline">
+      <div class="container">
+        <div class="destination-layout">
+
+          <!-- Content -->
+          <div class="destination__content">
+            <a href="https://tourismnanaimo.com/meetings-conferences/" class="destination__label">Nanaimo</a>
+            <h2 id="nanaimo-headline" class="destination__headline fade-in">
+              Where business meets creativity and nature.
+            </h2>
+            <p class="destination__body fade-in" style="color:rgba(255,255,255,0.88);">
+              For clients who want their meeting to feel coastal, connected, and a little less predictable. Nanaimo brings oceanfront hosting, creative venue potential, and access that helps make the destination easier to say yes to.
+            </p>
+
+            <div class="destination__media fade-in">
+              <div class="destination__photo-pair">
+                <figure>
+                  <a href="https://tourismnanaimo.com/meetings-conferences/" class="image-link" aria-label="Meet in Nanaimo">
+                    <img
+                      src="assets/photos/nanaimo-harbour-air.jpg"
+                      alt="Harbour Air seaplane docked on the waterfront in Nanaimo."
+                      loading="lazy"
+                      width="800"
+                      height="450"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://tourismnanaimo.com/meetings-conferences/" class="image-link" aria-label="Meet in Nanaimo">
+                    <img
+                      src="assets/photos/nanaimo-port-theatre.jpg"
+                      alt="The Port Theatre in Nanaimo framed by spring blossoms."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+                <figure>
+                  <a href="https://tourismnanaimo.com/meetings-conferences/" class="image-link" aria-label="Meet in Nanaimo">
+                    <img
+                      src="assets/photos/nanaimo-waterfront-sunset.jpg"
+                      alt="Nanaimo waterfront at sunset with rocky coastline and ocean views."
+                      loading="lazy"
+                      width="400"
+                      height="533"
+                    />
+                  </a>
+                </figure>
+              </div>
+            </div>
+
+            <!-- Recipe Card: 'Ferry' Refreshing -->
+            <div class="recipe-card fade-in" role="region" aria-labelledby="recipe-nanaimo-name">
+              <div class="recipe-card__header">
+                <p class="recipe-card__name" id="recipe-nanaimo-name">'Ferry' Refreshing</p>
+                <p class="recipe-card__oneliner">Coastal, refreshing, and extremely not beige.</p>
+                <p class="recipe-card__cheeky">Sparkling, tropical, and not trying to be another sad conference water station.</p>
+                <p class="recipe-card__preview">Pineapple, lime, sparkle, mint, and coastal main character energy.</p>
+              </div>
+              <button
+                class="recipe-card__toggle"
+                aria-expanded="false"
+                aria-controls="recipe-nanaimo-body"
+                onclick="toggleRecipe(this)"
+              >
+                <span>View recipe</span>
+                <span class="recipe-card__toggle-icon" aria-hidden="true">+</span>
+              </button>
+              <div class="recipe-card__body" id="recipe-nanaimo-body" role="region">
+                <div class="recipe-card__ingredients">
+                  <h4>Ingredients</h4>
+                  <ul>
+                    <li>Sparkling water or soda</li>
+                    <li>Pineapple juice</li>
+                    <li>Lime juice</li>
+                    <li>Splash of coconut milk or coconut water</li>
+                    <li>Fresh mint</li>
+                    <li>Ice cubes</li>
+                  </ul>
+                </div>
+                <div class="recipe-card__instructions">
+                  <h4>Instructions</h4>
+                  <ol>
+                    <li>Fill a glass with ice.</li>
+                    <li>Add 2 ounces pineapple juice.</li>
+                    <li>Add 1 ounce lime juice.</li>
+                    <li>Top with sparkling water or soda.</li>
+                    <li>Add a small splash of coconut milk or coconut water.</li>
+                    <li>Garnish with fresh mint.</li>
+                  </ol>
+                </div>
+              </div>
+              <div class="recipe-card__destination-cta">
+                <a href="https://tourismnanaimo.com/meetings-conferences/" class="btn btn-teal">Meet in Nanaimo</a>
+                <p class="microcopy">Ask how Nanaimo fits into your next Outside the Box BC meeting plan.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave divider: nanaimo to how-it-works -->
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1440 48" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <path d="M0,0 L1440,0 L1440,48 Q720,0 0,48 Z" fill="#000000"/>
+        <path d="M0,48 L1440,48 L1440,24 Q1080,48 720,24 Q360,0 0,24 Z" fill="#FAFAF7"/>
+      </svg>
+    </div>
+
+    <!-- ============================================
+         SECTION 9: HOW IT WORKS
+    ============================================= -->
+    <section class="how-it-works section-pad" aria-labelledby="how-headline">
+      <div class="container">
+        <h2 id="how-headline" class="how-it-works__headline fade-in">Here's the least complicated version.</h2>
+        <div class="steps" role="list">
+          <div class="step fade-in" role="listitem">
+            <span class="step__number" aria-hidden="true">1</span>
+            <h3>Start at one website.</h3>
+            <p>Visit Outside the Box BC when you need fresh BC destination options for a meeting, retreat, conference, or incentive-style program.</p>
+          </div>
+          <div class="step fade-in" role="listitem">
+            <span class="step__number" aria-hidden="true">2</span>
+            <h3>Explore three destinations.</h3>
+            <p>Kamloops, Penticton, and Nanaimo each bring a different kind of event energy, from riverside to lakeside to oceanside.</p>
+          </div>
+          <div class="step fade-in" role="listitem">
+            <span class="step__number" aria-hidden="true">3</span>
+            <h3>Ask about the incentive.</h3>
+            <p>If your meeting plans could land in more than one Outside the Box BC destination, ask us how the multi-destination incentive works.</p>
+          </div>
+        </div>
+        <div class="how-it-works__tagline-wrap">
+          <a href="https://www.outsidetheboxbc.ca/" class="how-it-works__tagline">One website. Three destinations. Ask us about the incentive.</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 10: PLANNER PROBLEM
+    ============================================= -->
+    <section class="planner-problem section-pad" aria-labelledby="planner-headline">
+      <div class="container">
+        <h2 id="planner-headline" class="planner-problem__headline fade-in">Built for planners who need better options, not more tabs open.</h2>
+        <p class="planner-problem__body fade-in">
+          Outside the Box BC is for planners who influence where meetings happen and need destination ideas they can confidently bring back to clients. If the usual shortlist feels expensive, expected, or overdone, this is your nudge to look somewhere smarter.
+        </p>
+        <ul class="planner-bullets fade-in" role="list">
+          <li>One place to explore Kamloops, Penticton, and Nanaimo.</li>
+          <li>Creative alternatives to the default major-city shortlist.</li>
+          <li>Destination support from teams who know meetings and events.</li>
+          <li>A multi-destination incentive worth asking about.</li>
+          <li>Memorable settings that help your client's event feel intentional.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 11: FINAL CTA
+    ============================================= -->
+    <section class="final-cta section-pad" aria-labelledby="final-cta-headline">
+      <div class="container">
+        <a href="https://www.outsidetheboxbc.ca/" class="final-cta__logo-link fade-in" aria-label="Visit the Outside the Box BC website">
+          <img
+            src="assets/logos/OutsideTheBoxBC-Logo-Colour-RGB.png"
+            alt="Outside the Box BC logo showing Kamloops, Penticton, and Nanaimo connected through a box graphic."
+            class="final-cta__logo"
+            width="480"
+            loading="lazy"
+          />
+        </a>
+        <h2 id="final-cta-headline" class="final-cta__headline fade-in">Ready to plan outside the box?</h2>
+        <p class="final-cta__body fade-in">
+          Start with one website and explore three BC destinations that make meetings feel less expected, more memorable, and a whole lot easier to talk your clients into.
+        </p>
+        <div class="final-cta__cta-wrap fade-in">
+          <a href="https://www.outsidetheboxbc.ca/" class="btn btn-black">Visit Outside the Box BC</a>
+          <p class="microcopy">One website. Three destinations. Ask us about the incentive.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <a href="https://www.outsidetheboxbc.ca/" class="site-footer__logo-link" aria-label="Visit the Outside the Box BC website">
+        <img
+          src="assets/logos/OutsideTheBoxBC-Logo-Reversed-RGB.png"
+          alt="Outside the Box BC logo showing Kamloops, Penticton, and Nanaimo connected through a box graphic."
+          class="site-footer__logo"
+          width="320"
+          loading="lazy"
+        />
+      </a>
+      <p class="site-footer__tagline">Meetings and events are done differently here.</p>
+      <p class="site-footer__contact">
+        <a href="mailto:info@outsidetheboxbc.ca">info@outsidetheboxbc.ca</a>
+      </p>
+      <a href="https://www.outsidetheboxbc.ca/" class="btn btn-coral">Visit Outside the Box BC</a>
+      <p class="site-footer__legal">
+        &copy; 2026 Outside the Box BC. A collaboration between Meet in Kamloops, Meet in Penticton, and Meet in Nanaimo.<br/>
+        This page is intended for CanSPEP 2026 attendees.
+      </p>
+    </div>
+  </footer>
+
+  <!-- =============================================
+       JAVASCRIPT
+  ============================================= -->
+  <script>
+    // Accordion toggle
+    function toggleRecipe(btn) {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+
+      const bodyId = btn.getAttribute('aria-controls');
+      const body = document.getElementById(bodyId);
+      if (body) {
+        body.classList.toggle('is-open', !expanded);
+      }
+
+      const icon = btn.querySelector('.recipe-card__toggle-icon');
+      const label = btn.querySelector('span:first-child');
+      if (label) {
+        label.textContent = !expanded ? 'Close recipe' : 'View recipe';
+      }
+    }
+
+    // Keyboard accessibility: Enter/Space on toggle
+    document.querySelectorAll('.recipe-card__toggle').forEach(btn => {
+      btn.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          toggleRecipe(this);
+        }
+      });
+    });
+
+    // Fade-in on scroll using IntersectionObserver
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    fadeEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
